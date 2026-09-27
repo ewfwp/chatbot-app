@@ -1,0 +1,63 @@
+{
+  "name": "ewfwp-example-app",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "compact:bootstrap": "node minification.bootstrap.script.mts",
+    "build:production": "ng build --configuration production --output-hashing none",
+    "build:web-component": "npm run build:production && vite build --config vite.config.mts && npm run compact:bootstrap",
+    "build:wordpress-plugin": "npm run build:web-component && zip-a-folder ewfwp-example-app ./ewfwp-example-app.zip",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "lint": "ng lint",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.*": "prettier --write"
+  },
+  "engines": {
+    "node": "24",
+    "npm": "11"
+  },
+  "private": true,
+  "packageManager": "npm@11.12.1",
+  "dependencies": {
+    "@angular/common": "^22.1.0",
+    "@angular/compiler": "^22.1.0",
+    "@angular/core": "^22.1.0",
+    "@angular/elements": "^22.1.7",
+    "@angular/forms": "^22.1.0",
+    "@angular/platform-browser": "^22.1.0",
+    "@angular/router": "^22.1.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "22.1.6",
+    "@angular/cli": "^22.1.6",
+    "@angular/compiler-cli": "^22.1.6",
+    "@eslint/js": "^10.0.1",
+    "@testing-library/dom": "^10.4.1",
+    "@types/node": "^26.5.0",
+    "@types/postcss-prefix-selector": "^1.16.3",
+    "@vitest/coverage-v8": "^4.1.11",
+    "angular-eslint": "^22.2.0",
+    "bootstrap": "^5.3.8",
+    "eslint": "^10.9.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.6",
+    "husky": "^9.1.7",
+    "jsdom": "^28.0.0",
+    "lint-staged": "^17.5.1",
+    "postcss-prefix-selector": "^2.2.1",
+    "prettier": "^3.9.8",
+    "purgecss": "^8.0.0",
+    "typescript": "~6.0.2",
+    "typescript-eslint": "8.69.0",
+    "vite-plugin-static-copy": "^4.1.1",
+    "vitest": "^4.0.8",
+    "zip-a-folder": "^7.0.0"
+  }
+}

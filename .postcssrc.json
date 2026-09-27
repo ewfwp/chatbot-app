@@ -1,0 +1,7 @@
+{
+  "plugins": {
+    "postcss-prefix-selector": {
+      "prefix": "ewfwp-example-app"
+    }
+  }
+}

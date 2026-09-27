@@ -1,0 +1,30 @@
+# Dependencies
+node_modules
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build output
+dist
+build
+coverage
+
+# Angular
+.angular
+*.ngfactory.ts
+*.ngstyle.ts
+
+# Environment files
+environment*.ts
+
+# Misc
+*.min.js
+*.map
+
+# IDE
+.idea
+.vscode
+.nvmrc
+.prettierignore
+.gitignore
+ewfwp-example-app

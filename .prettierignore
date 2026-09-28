@@ -27,4 +27,4 @@ environment*.ts
 .nvmrc
 .prettierignore
 .gitignore
-ewfwp-example-app
+ewfwp-chatbot-app

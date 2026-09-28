@@ -1,7 +1,7 @@
 {
   "plugins": {
     "postcss-prefix-selector": {
-      "prefix": "ewfwp-example-app"
+      "prefix": "ewfwp-chatbot-app"
     }
   }
 }

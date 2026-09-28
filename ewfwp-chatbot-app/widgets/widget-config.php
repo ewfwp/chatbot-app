@@ -4,13 +4,13 @@ if (!defined('ABSPATH')) {
   exit;
 }
 
-class EWFWP_Example_Widget extends \Elementor\Widget_Base {
+class EWFWP_Chatbot_Widget extends \Elementor\Widget_Base {
   public function get_name(): string {
-    return 'ewfwp-example-app';
+    return 'ewfwp-chatbot-app';
   }
 
   public function get_title(): string {
-    return esc_html__('Example applicatie', 'ewfwp-example-app');
+    return esc_html__('Chatbot applicatie', 'ewfwp-chatbot-app');
   }
 
   public function get_icon(): string {
@@ -22,11 +22,11 @@ class EWFWP_Example_Widget extends \Elementor\Widget_Base {
   }
 
   public function get_script_depends(): array {
-    return ['ewfwp-example-app-script'];
+    return ['ewfwp-chatbot-app-script'];
   }
 
   public function get_style_depends(): array {
-    return ['ewfwp-example-app-style'];
+    return ['ewfwp-chatbot-app-style'];
   }
 
   protected function register_controls(): void {
@@ -34,7 +34,7 @@ class EWFWP_Example_Widget extends \Elementor\Widget_Base {
   }
 
   protected function render(): void {
-    echo '<ewfwp-example-app></ewfwp-example-app>';
+    echo '<ewfwp-chatbot-app></ewfwp-chatbot-app>';
   }
 
   /**
@@ -43,7 +43,7 @@ class EWFWP_Example_Widget extends \Elementor\Widget_Base {
   protected function content_template(): void
   {
     ?>
-      <ewfwp-example-app></ewfwp-example-app>
+      <ewfwp-chatbot-app></ewfwp-chatbot-app>
     <?php
   }
 }

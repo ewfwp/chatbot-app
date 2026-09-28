@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: EWFWP Example Widget
- * Description: Example Widget ontwikkeld voor WordPress met Elementor ondersteuning.
+ * Plugin Name: EWFWP Chatbot Widget
+ * Description: Chatbot Widget ontwikkeld voor WordPress met Elementor ondersteuning.
  * Version: 1.0.0
  * Author: Aaron Weggemans
  */
@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
  * Registreer de Angular JavaScript- en CSS-bestanden.
  */
 function ewfwp_register_widget_assets(): void {
-  $handle = 'ewfwp-example-app';
+  $handle = 'ewfwp-chatbot-app';
 
   $script_path = plugin_dir_path(__FILE__) . 'web-component/web-component.js';
   $style_path  = plugin_dir_path(__FILE__) . 'web-component/assets/styles.css';
@@ -42,7 +42,7 @@ function ewfwp_register_category($elements_manager): void {
   $elements_manager->add_category(
     'ewfwp-widgets',
     [
-      'title' => esc_html__('EWFWP Widgets', 'ewfwp-example-app'),
+      'title' => esc_html__('EWFWP Widgets', 'ewfwp-chatbot-app'),
       'icon'  => 'fa fa-plug',
     ]
   );
@@ -55,7 +55,7 @@ add_action('elementor/elements/categories_registered', 'ewfwp_register_category'
  */
 function ewfwp_register_widget($widgets_manager): void {
   require_once plugin_dir_path(__FILE__) . 'widgets/widget-config.php';
-  $widgets_manager->register(new \EWFWP_Example_Widget());
+  $widgets_manager->register(new \EWFWP_Chatbot_Widget());
 }
 
 add_action('elementor/widgets/register', 'ewfwp_register_widget');

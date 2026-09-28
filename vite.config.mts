@@ -4,7 +4,7 @@ import postcssPrefixSelector from 'postcss-prefix-selector';
 
 export default defineConfig({
   build: {
-    outDir: 'ewfwp-example-app/web-component',
+    outDir: 'ewfwp-chatbot-app/web-component',
     emptyOutDir: true,
     sourcemap: true,
 
@@ -22,7 +22,7 @@ export default defineConfig({
     postcss: {
       plugins: [
         postcssPrefixSelector({
-          prefix: 'ewfwp-example-app',
+          prefix: 'ewfwp-chatbot-app',
         }),
       ],
     },
@@ -31,7 +31,7 @@ export default defineConfig({
     viteStaticCopy({
       targets: [
         {
-          src: 'dist/ewfwp-example-app/browser/styles.css',
+          src: 'dist/ewfwp-chatbot-app/browser/styles.css',
           dest: 'assets',
           rename: { stripBase: true },
         },

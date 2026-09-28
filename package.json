@@ -1,5 +1,5 @@
 {
-  "name": "ewfwp-example-app",
+  "name": "ewfwp-chatbot-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -8,7 +8,7 @@
     "compact:bootstrap": "node minification.bootstrap.script.mts",
     "build:production": "ng build --configuration production --output-hashing none",
     "build:web-component": "npm run build:production && vite build --config vite.config.mts && npm run compact:bootstrap",
-    "build:wordpress-plugin": "npm run build:web-component && zip-a-folder ewfwp-example-app ./ewfwp-example-app.zip",
+    "build:wordpress-plugin": "npm run build:web-component && zip-a-folder ewfwp-chatbot-app ./ewfwp-chatbot-app.zip",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
@@ -31,6 +31,7 @@
     "@angular/forms": "^22.1.0",
     "@angular/platform-browser": "^22.1.0",
     "@angular/router": "^22.1.0",
+    "@mlc-ai/web-llm": "^0.2.85",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },

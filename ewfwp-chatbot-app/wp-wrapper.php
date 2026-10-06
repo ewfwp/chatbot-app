@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: EWFWP Chatbot Widget
- * Description: Chatbot Widget ontwikkeld voor WordPress met Elementor ondersteuning.
- * Version: 1.0.0
+ * Description: JWZ chatbot met chatknopje, Elementor-widget en een WordPress AI-endpoint.
+ * Version: 2.0.0
  * Author: Aaron Weggemans
  */
 

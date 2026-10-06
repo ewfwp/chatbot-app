@@ -1,0 +1,272 @@
+import type { ChatbotKnowledgeItem, ChatbotReply } from '../chatbot.models';
+
+export const CHATBOT_KNOWLEDGE = [
+  {
+    topic: 'greeting',
+    phrases: ['hallo', 'hoi', 'goedemorgen', 'goedemiddag', 'goedenavond'],
+    keywords: [],
+    text: 'Hallo! Stel gerust uw vraag over hypotheken. Ik kan u ook helpen om de juiste pagina op de website te vinden.',
+  },
+  {
+    topic: 'mortgage-calculation',
+    phrases: [
+      'hoe hoog is mijn hypotheek',
+      'hoeveel hypotheek kan ik krijgen',
+      'hoeveel kan ik lenen',
+      'wat kan ik lenen',
+      'maximale hypotheek',
+      'hypotheek berekenen',
+      'maandlasten berekenen',
+      'hoeveel hypotheek',
+      'maandlasten',
+      'calculator',
+    ],
+    keywords: [
+      'berekenen',
+      'calculator',
+      'maximaal',
+      'maximum',
+      'lenen',
+      'maandlasten',
+      'inkomen',
+      'salaris',
+      'studieschuld',
+      'hoogte hypotheek',
+    ],
+    text: 'Hoeveel u kunt lenen hangt onder meer af van uw inkomen, financiële verplichtingen, de hypotheekrente en de waarde van de woning. Met onze calculator krijgt u een eerste indicatie. Voor een definitieve beoordeling is persoonlijk advies nodig.',
+    action: {
+      label: 'Bereken uw hypotheek',
+      path: '/onze-calculator/',
+    },
+  },
+  {
+    topic: 'mortgage-definition',
+    phrases: [
+      'wat is een hypotheek',
+      'hoe werkt een hypotheek',
+      'hypotheek uitleg',
+      'woninglening',
+      'hypotheek',
+    ],
+    keywords: ['onderpand', 'aflossen', 'woning financieren', 'betekent hypotheek'],
+    text: 'Een hypotheek is een lening waarmee u een woning financiert. De woning dient als onderpand voor de geldverstrekker. U betaalt rente en lost, afhankelijk van de hypotheekvorm, tijdens de looptijd af.',
+    action: {
+      label: 'Lees meer over hypotheekadvies',
+      path: '/hypotheekadvies/',
+    },
+  },
+  {
+    topic: 'mortgage-types',
+    phrases: [
+      'welke hypotheekvorm',
+      'hypotheekvormen',
+      'annuïteitenhypotheek',
+      'lineaire hypotheek',
+      'aflossingsvrije hypotheek',
+      'hypotheekvorm',
+      'welke hypotheek past bij mij',
+    ],
+    keywords: ['annuiteit', 'annuïteit', 'lineair', 'aflossingsvrij', 'hypotheekvorm'],
+    text: 'Veelvoorkomende hypotheekvormen zijn de annuïteitenhypotheek en de lineaire hypotheek. Bij annuïtair aflossen blijft het bruto maandbedrag aanvankelijk gelijk; bij lineair aflossen daalt de schuld iedere maand met een vast bedrag. Welke vorm passend is, hangt af van uw persoonlijke situatie.',
+    action: {
+      label: 'Bespreek de mogelijkheden',
+      path: '/contact/',
+    },
+  },
+  {
+    topic: 'mortgage-interest',
+    phrases: [
+      'wat is hypotheekrente',
+      'hoe werkt hypotheekrente',
+      'actuele hypotheekrente',
+      'hypotheekrente',
+      'rentevaste periode',
+      'rentestand',
+      'rente',
+    ],
+    keywords: ['hypotheekrente', 'rente', 'rentepercentage', 'rentevast'],
+    text: 'Hypotheekrente is de vergoeding die u aan de geldverstrekker betaalt over uw lening. De rente en de gekozen rentevaste periode beïnvloeden uw maandlasten. Deze chatbot toont geen actuele rentetarieven, omdat die kunnen wijzigen.',
+    action: {
+      label: 'Vraag naar de actuele mogelijkheden',
+      path: '/contact/',
+    },
+  },
+  {
+    topic: 'mortgage-costs',
+    phrases: [
+      'hoeveel eigen geld',
+      'kosten koper',
+      'overdrachtsbelasting',
+      'notariskosten',
+      'kosten bij huis kopen',
+    ],
+    keywords: [
+      'eigen geld',
+      'kosten koper',
+      'overdrachtsbelasting',
+      'notaris',
+      'taxatie',
+      'advieskosten',
+    ],
+    text: 'Bij het kopen van een woning krijgt u naast de koopsom vaak te maken met kosten zoals overdrachtsbelasting, notariskosten, taxatiekosten en advieskosten. Welk bedrag aan eigen geld nodig is, verschilt per situatie.',
+    action: {
+      label: 'Maak een eerste berekening',
+      path: '/onze-calculator/',
+    },
+  },
+  {
+    topic: 'nhg',
+    phrases: ['wat is nhg', 'nationale hypotheek garantie', 'hypotheek met nhg', 'nhg'],
+    keywords: ['nhg', 'nationale garantie', 'vangnet'],
+    text: 'De Nationale Hypotheek Garantie is onder voorwaarden een vangnet wanneer u door bepaalde omstandigheden uw hypotheek niet meer kunt betalen. De voorwaarden en grenzen kunnen veranderen; een adviseur kan controleren of u ervoor in aanmerking komt.',
+    action: {
+      label: 'Vraag persoonlijk advies',
+      path: '/contact/',
+    },
+  },
+  {
+    topic: 'starters',
+    phrases: [
+      'ik ben starter',
+      'eerste huis kopen',
+      'eerste woning kopen',
+      'hypotheek voor starters',
+      'starters hypotheek',
+      'starter',
+      'starters',
+    ],
+    keywords: ['starter', 'starters', 'eerste huis', 'eerste woning', 'koopwoning'],
+    text: 'Als starter is het verstandig om vóór het bezichtigen inzicht te krijgen in uw budget, maandlasten en benodigde eigen middelen. Daarbij tellen onder andere uw inkomen, vaste lasten, studieschuld, spaargeld en toekomstplannen mee.',
+    action: {
+      label: 'Bekijk informatie voor starters',
+      path: '/starters/',
+    },
+  },
+  {
+    topic: 'change-mortgage',
+    phrases: [
+      'hypotheek oversluiten',
+      'hypotheek aanpassen',
+      'verbouwing financieren',
+      'ander huis kopen',
+      'verhuizen hypotheek',
+      'oversluiten',
+    ],
+    keywords: ['oversluiten', 'verbouwen', 'verbouwing', 'verhuizen', 'doorstromer', 'aanpassen'],
+    text: 'Een bestaande hypotheek aanpassen, oversluiten of gebruiken voor een verbouwing vraagt om een vergelijking van kosten, voorwaarden en toekomstige maandlasten. JWZ kan verschillende geldverstrekkers en mogelijkheden voor u vergelijken.',
+    action: {
+      label: 'Bekijk hypotheekadvies',
+      path: '/hypotheekadvies/',
+    },
+  },
+  {
+    topic: 'insurance',
+    phrases: [
+      'welke verzekering heb ik nodig',
+      'verzekeringen bij een huis',
+      'opstalverzekering',
+      'inboedelverzekering',
+      'overlijdensrisicoverzekering',
+      'verzekering',
+      'verzekeringen',
+    ],
+    keywords: [
+      'verzekering',
+      'verzekeringen',
+      'opstal',
+      'inboedel',
+      'aansprakelijkheid',
+      'rechtsbijstand',
+      'nabestaanden',
+      'overlijdensrisico',
+    ],
+    text: 'Bij een woning kunnen onder andere een opstalverzekering, inboedelverzekering en aansprakelijkheidsverzekering relevant zijn. Welke verzekeringen nodig of verstandig zijn, hangt af van uw woning en persoonlijke situatie.',
+    action: {
+      label: 'Bekijk de verzekeringen',
+      path: '/verzekeringen/',
+    },
+  },
+  {
+    topic: 'comparison-card',
+    phrases: [
+      'wat kost hypotheekadvies',
+      'kosten van advies',
+      'vergelijkingskaart',
+      'beloningskaart',
+      'beloningsbeleid',
+    ],
+    keywords: [
+      'kosten advies',
+      'vergelijkingskaart',
+      'beloningskaart',
+      'beloning',
+      'dienstverleningsdocument',
+    ],
+    text: 'Op de vergelijkingskaart leest u meer over de dienstverlening, onafhankelijkheid en gemiddelde kosten van het advies. Op dezelfde pagina vindt u ook informatie over het beloningsbeleid.',
+    action: {
+      label: 'Bekijk de vergelijkingskaart',
+      path: '/vergelijkingskaart/',
+    },
+  },
+  {
+    topic: 'about-jwz',
+    phrases: [
+      'wie is jwz',
+      'wat doet jwz',
+      'over jwz',
+      'wie zijn jullie',
+      'welke diensten',
+      'team',
+    ],
+    keywords: ['jwz', 'team', 'diensten', 'adviseur', 'onafhankelijk advies'],
+    text: 'JWZ Financiële Diensten geeft persoonlijk en onafhankelijk advies over hypotheken, verzekeringen en financiële planning. Tijdens het traject heeft u één vast aanspreekpunt.',
+    action: {
+      label: 'Lees meer over JWZ',
+      path: '/over/',
+    },
+  },
+  {
+    topic: 'contact',
+    phrases: [
+      'contact opnemen',
+      'afspraak maken',
+      'kennismakingsgesprek',
+      'adviseur spreken',
+      'ik wil advies',
+      'contact',
+      'afspraak',
+    ],
+    keywords: ['contact', 'afspraak', 'bellen', 'mailen', 'adviseur spreken', 'persoonlijk advies'],
+    text: 'U kunt vrijblijvend contact opnemen met JWZ Financiële Diensten. Op de contactpagina vindt u de actuele contactgegevens en het contactformulier.',
+    action: {
+      label: 'Ga naar contact',
+      path: '/contact/',
+    },
+  },
+  {
+    topic: 'privacy',
+    phrases: [
+      'worden mijn gegevens opgeslagen',
+      'slaat de chatbot gegevens op',
+      'wat gebeurt met mijn gegevens',
+      'privacy chatbot',
+      'privacy',
+    ],
+    keywords: ['privacy', 'gegevens opgeslagen', 'data opgeslagen', 'bewaren', 'persoonsgegevens'],
+    text: 'Deze chatbot verwerkt uw vraag alleen lokaal in de browser en verstuurt vanuit de component niets naar een externe AI-dienst. De component bewaart het gesprek niet nadat u de pagina verlaat.',
+  },
+] as const satisfies readonly ChatbotKnowledgeItem[];
+
+export const EMPTY_QUESTION_REPLY: ChatbotReply = {
+  topic: 'fallback',
+  text: 'Vul een vraag in, bijvoorbeeld: “Hoeveel hypotheek kan ik krijgen?”',
+};
+
+export const FALLBACK_REPLY: ChatbotReply = {
+  topic: 'fallback',
+  text: 'Daar heb ik nog geen betrouwbaar standaardantwoord op. Omdat uw situatie persoonlijk kan zijn, kunt u deze vraag het beste aan een adviseur van JWZ stellen.',
+  action: {
+    label: 'Neem contact op',
+    path: '/contact/',
+  },
+};

@@ -1,0 +1,14 @@
+<article class="chat-message__bubble">
+  <p class="chat-message__author">
+    {{ message().author === 'assistant' ? 'JWZ Hypotheekassistent' : 'U' }}
+  </p>
+
+  <p class="chat-message__text">{{ message().text }}</p>
+
+  @if (message().action; as action) {
+    <a class="chat-message__action" [href]="action.href">
+      {{ action.label }}
+      <span aria-hidden="true">→</span>
+    </a>
+  }
+</article>

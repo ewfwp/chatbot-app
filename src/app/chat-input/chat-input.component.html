@@ -1,0 +1,27 @@
+<form class="chat-input" (ngSubmit)="submit()" novalidate>
+  <label class="chat-input__label" [for]="inputId">Stel uw vraag</label>
+
+  <div class="chat-input__controls">
+    <input
+      #questionInput
+      class="chat-input__field"
+      type="text"
+      [id]="inputId"
+      [formControl]="question"
+      [attr.aria-describedby]="ariaDescribedBy()"
+      [attr.aria-invalid]="question.touched && question.invalid"
+      maxlength="300"
+      autocomplete="off"
+      placeholder="Bijvoorbeeld: hoeveel hypotheek kan ik krijgen?"
+      required
+    />
+
+    <button class="chat-input__submit" type="submit" [disabled]="question.invalid">Verstuur</button>
+  </div>
+
+  <p class="chat-input__error" [id]="errorId" aria-live="polite">
+    @if (question.touched && question.invalid) {
+      Vul een vraag in van maximaal 300 tekens.
+    }
+  </p>
+</form>

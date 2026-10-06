@@ -1,12 +1,22 @@
-<article class="chat-message__bubble">
-  <p class="chat-message__author">
+<article
+  class="w-75 mw-100 rounded-3 p-3"
+  [class.bg-body-secondary]="message().author === 'assistant'"
+  [class.text-body]="message().author === 'assistant'"
+  [class.text-white]="message().author === 'user'"
+  [style.background-color]="message().author === 'user' ? 'var(--jwz-chatbot-primary)' : null"
+>
+  <p class="small fw-bold mb-1">
     {{ message().author === 'assistant' ? 'JWZ Hypotheekassistent' : 'U' }}
   </p>
 
-  <p class="chat-message__text">{{ message().text }}</p>
+  <p class="chat-message__text mb-0 text-break">{{ message().text }}</p>
 
   @if (message().action; as action) {
-    <a class="chat-message__action" [href]="action.href">
+    <a
+      class="link-primary fw-bold d-inline-flex align-items-center gap-2 mt-3"
+      [href]="action.href"
+      [style.color]="'var(--jwz-chatbot-primary)'"
+    >
       {{ action.label }}
       <span aria-hidden="true">→</span>
     </a>

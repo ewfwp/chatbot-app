@@ -1,23 +1,13 @@
-import {
-  Component,
-  computed,
-  ElementRef,
-  input,
-  output,
-  viewChild,
-  ViewEncapsulation,
-} from '@angular/core';
-import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, computed, ElementRef, input, output, viewChild } from '@angular/core';
+import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { nonWhitespaceValidator } from './validators/non-whitespace.validator';
 
 let nextInputId = 0;
 
 @Component({
   selector: 'app-chat-input',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, FormsModule],
   templateUrl: './chat-input.component.html',
-  styleUrl: './chat-input.component.scss',
-  encapsulation: ViewEncapsulation.None,
 })
 export class ChatInputComponent {
   readonly describedBy = input('');

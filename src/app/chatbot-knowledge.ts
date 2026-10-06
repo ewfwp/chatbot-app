@@ -1,4 +1,5 @@
-import type { ChatbotKnowledgeItem, ChatbotReply } from '../chatbot.models';
+/* eslint-disable max-len */
+import type { ChatbotKnowledgeItem, ChatbotReply } from './chatbot.models';
 
 export const CHATBOT_KNOWLEDGE = [
   {

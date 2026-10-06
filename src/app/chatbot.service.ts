@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { CHATBOT_KNOWLEDGE, EMPTY_QUESTION_REPLY, FALLBACK_REPLY } from './data/chatbot-knowledge';
+import { CHATBOT_KNOWLEDGE, EMPTY_QUESTION_REPLY, FALLBACK_REPLY } from './chatbot-knowledge';
 import type { ChatbotKnowledgeItem, ChatbotReply } from './chatbot.models';
 
 const MINIMUM_MATCH_SCORE = 4;

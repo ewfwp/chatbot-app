@@ -1,4 +1,4 @@
-import { Component, inject, input, signal, ViewEncapsulation } from '@angular/core';
+import { Component, inject, input, signal } from '@angular/core';
 import { ChatInputComponent } from './chat-input/chat-input.component';
 import { ChatMessageComponent } from './chat-message/chat-message.component';
 import type {
@@ -15,8 +15,6 @@ let nextChatbotId = 0;
   selector: 'app-mortgage-chatbot-root',
   imports: [ChatInputComponent, ChatMessageComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
-  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
   readonly heading = input('Vraag het de JWZ Hypotheekassistent');

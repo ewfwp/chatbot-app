@@ -9,25 +9,19 @@ import type {
 } from './chatbot.models';
 import { ChatbotService } from './chatbot.service';
 
-let nextChatbotId = 0;
-
 @Component({
-  selector: 'app-mortgage-chatbot-root',
+  selector: 'app-component',
   imports: [ChatInputComponent, ChatMessageComponent],
   templateUrl: './app.component.html',
 })
 export class AppComponent {
+  private readonly chatbotService = inject(ChatbotService);
+
   readonly heading = input('Vraag het de JWZ Hypotheekassistent');
   readonly siteUrl = input('https://jwz-fd.nl/');
   readonly primaryColor = input('#222356');
   readonly accentColor = input('#81b4de');
 
-  private readonly chatbotService = inject(ChatbotService);
-  private readonly instanceId = ++nextChatbotId;
-  private nextMessageId = 0;
-
-  protected readonly headingId = `jwz-chatbot-heading-${this.instanceId}`;
-  protected readonly disclaimerId = `jwz-chatbot-disclaimer-${this.instanceId}`;
   protected readonly messages = signal<readonly ChatMessage[]>([
     this.createMessage(
       'assistant',
@@ -50,10 +44,8 @@ export class AppComponent {
     text: string,
     action?: ChatMessageAction,
   ): ChatMessage {
-    this.nextMessageId += 1;
-
     const message: ChatMessage = {
-      id: `chat-message-${this.instanceId}-${this.nextMessageId}`,
+      id: ' asdf',
       author,
       text,
     };

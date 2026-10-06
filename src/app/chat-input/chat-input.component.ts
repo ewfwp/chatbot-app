@@ -1,42 +1,29 @@
-import { Component, computed, ElementRef, input, output, viewChild } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, ElementRef, output, signal, viewChild } from '@angular/core';
+import { form, FormField, maxLength, required, validate } from '@angular/forms/signals';
 import { nonWhitespaceValidator } from './validators/non-whitespace.validator';
-
-let nextInputId = 0;
 
 @Component({
   selector: 'app-chat-input',
-  imports: [ReactiveFormsModule, FormsModule],
+  imports: [FormField],
   templateUrl: './chat-input.component.html',
 })
 export class ChatInputComponent {
-  readonly describedBy = input('');
   readonly questionSubmitted = output<string>();
 
-  private readonly instanceId = ++nextInputId;
+  private readonly input = viewChild.required<ElementRef<HTMLInputElement>>('input');
 
-  protected readonly inputId = `jwz-chatbot-question-${this.instanceId}`;
-  protected readonly errorId = `jwz-chatbot-question-error-${this.instanceId}`;
-  protected readonly questionInput =
-    viewChild.required<ElementRef<HTMLInputElement>>('questionInput');
-  protected readonly question = new FormControl('', {
-    nonNullable: true,
-    validators: [Validators.required, Validators.maxLength(300), nonWhitespaceValidator],
-  });
-  protected readonly ariaDescribedBy = computed(() => {
-    return [this.describedBy(), this.errorId].filter(Boolean).join(' ');
+  protected readonly question = form(signal(''), (path) => {
+    required(path);
+    maxLength(path, 300);
+    validate(path, nonWhitespaceValidator);
   });
 
-  protected submit(): void {
-    const question = this.question.value.trim();
-
-    if (this.question.invalid || !question) {
-      this.question.markAsTouched();
-      return;
-    }
+  protected submit(event: Event): void {
+    event.preventDefault();
+    const question = this.question().value().trim();
 
     this.questionSubmitted.emit(question);
-    this.question.reset();
-    this.questionInput().nativeElement.focus();
+    this.question().reset('');
+    this.input().nativeElement.focus();
   }
 }

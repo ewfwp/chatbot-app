@@ -1,7 +1,4 @@
-import { ValidationErrors, ValidatorFn } from '@angular/forms';
+import type { FieldValidator } from '@angular/forms/signals';
 
-export const nonWhitespaceValidator: ValidatorFn = (control): ValidationErrors | null => {
-  return typeof control.value === 'string' && control.value.trim().length > 0
-    ? null
-    : { whitespace: true };
-};
+export const nonWhitespaceValidator: FieldValidator<string> = ({ value }) =>
+  value().trim().length > 0 ? undefined : { kind: 'whitespace' };

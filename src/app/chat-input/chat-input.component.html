@@ -1,26 +1,24 @@
-<form class="border-top bg-white p-3" novalidate (ngSubmit)="submit()">
-  <label class="form-label fw-bold mb-2" [for]="inputId">Stel uw vraag</label>
+<form class="border-top bg-white p-3" (submit)="submit($event)">
+  <label class="form-label fw-bold mb-2" for="question">Stel uw vraag</label>
 
   <div class="d-flex flex-column flex-sm-row gap-2">
     <input
-      #questionInput
+      #input
+      aria-required="true"
       autocomplete="off"
       class="form-control flex-grow-1"
-      maxlength="300"
+      id="question"
       placeholder="Bijvoorbeeld: hoeveel hypotheek kan ik krijgen?"
-      required
       type="text"
-      [attr.aria-describedby]="ariaDescribedBy()"
-      [attr.aria-invalid]="question.touched && question.invalid"
-      [class.is-invalid]="question.touched && question.invalid"
-      [formControl]="question"
-      [id]="inputId"
+      [attr.aria-invalid]="question().touched() && question().invalid()"
+      [class.is-invalid]="question().touched() && question().invalid()"
+      [formField]="question"
     />
 
     <button
       class="btn btn-primary flex-shrink-0"
       type="submit"
-      [disabled]="question.invalid"
+      [disabled]="question().invalid()"
       [style.background-color]="'var(--jwz-chatbot-primary)'"
       [style.border-color]="'var(--jwz-chatbot-primary)'"
     >
@@ -28,8 +26,8 @@
     </button>
   </div>
 
-  <p aria-live="polite" class="small text-danger mt-2 mb-0" [id]="errorId">
-    @if (question.touched && question.invalid) {
+  <p aria-live="polite" class="small text-danger mt-2 mb-0">
+    @if (question().touched() && question().invalid()) {
       Vul een vraag in van maximaal 300 tekens.
     }
   </p>

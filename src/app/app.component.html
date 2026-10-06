@@ -1,6 +1,5 @@
 <section
-  class="container card lh-base shadow my-3 px-0 overflow-hidden"
-  [attr.aria-labelledby]="headingId"
+  class="card shadow"
   [style.--jwz-chatbot-accent]="accentColor()"
   [style.--jwz-chatbot-primary]="primaryColor()"
 >
@@ -8,7 +7,7 @@
     <p class="small text-uppercase fw-bold mb-1" [style.color]="'var(--jwz-chatbot-accent)'">
       JWZ Financiële Diensten
     </p>
-    <h2 class="h4 mb-2" [id]="headingId">{{ heading() }}</h2>
+    <h2 class="h4 mb-2">{{ heading() }}</h2>
     <p class="mb-0">Stel uw algemene vraag en vind snel de juiste informatie.</p>
   </header>
 
@@ -27,9 +26,9 @@
     </ol>
   </div>
 
-  <p class="small text-secondary mb-0 px-3 pb-2" [id]="disclaimerId">
+  <p class="small text-secondary mb-0 px-3 pb-2">
     Deze chatbot geeft algemene informatie en geen persoonlijk financieel advies.
   </p>
 
-  <app-chat-input [describedBy]="disclaimerId" (questionSubmitted)="askQuestion($event)" />
+  <app-chat-input (questionSubmitted)="askQuestion($event)" />
 </section>
